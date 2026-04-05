@@ -9,45 +9,22 @@
   },
   "decoders": {
     "default_decoder": {
-      "loss_weight": 1.0,
-      "metric": "accuracy",
-      "topn": 1,
-      "layers_to_use": [-1]
+    //   "loss_weight": 1.0,
+    //   "metric": "accuracy",
+    //   "topn": 1,
+    //   "layers_to_use": [-1]
     },
-    "classification": {
-    },
-    "dependency": {
-      "arc_representation_dim": 768,
-      "tag_representation_dim": 256,
-      "metric": "las"
-    },
-    "mlm": {
-      "metric": "perplexity"
-    },
-    "multiclas": {
-      "metric": "multi_acc",
-      "threshold": 0.7
-    },
-    "probdistr": {
-      "metric": "avg_dist"
-    },
-    "multiseq": {
-      "metric": "multi_acc",
-      "threshold": 0.7
-    },
-    "regression": {
-      "metric": "avg_dist"
-    },
-    "seq": {
-    },
-    "seq_bio": {
-      "metric": "span_f1"
-    },
-    "string2string": {
-    },
-    "tok": {
-      "pre_split": true
-    }
+    "classification": {},
+    "dependency": {},
+    "mlm": {},
+    "multiclas": {},
+    "probdistr": {},
+    "multiseq": {},
+    "regression": {},
+    "seq": {},
+    "seq_bio": {},
+    "string2string": {},
+    "tok": {}
   },
   "batching": {
     "max_tokens": 1024,

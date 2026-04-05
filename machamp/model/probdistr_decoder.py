@@ -1,0 +1,45 @@
+import torch
+import torch.nn.functional as F
+
+from machamp.model.machamp_decoder import MachampDecoder
+import torch.nn.functional as F
+
+
+class MachampProbdistributionDecoder(MachampDecoder, torch.nn.Module):
+    def __init__(self, task, vocabulary, input_dim, device, loss_weight: float = 1.0, decoder_dropout: float = 0.0, topn: int = 1,
+                 metric: str = 'accuracy', **kwargs):
+        super().__init__(task, vocabulary, loss_weight, metric, device, **kwargs)
+
+        self.nlabels = len(kwargs['column_idxs'])
+        self.hidden_to_label = torch.nn.Linear(input_dim, self.nlabels)
+        self.hidden_to_label.to(device)
+        #self.loss_function = torch.nn.CrossEntropyLoss(reduction='sum', ignore_index=-100) # .33
+        self.loss_function = torch.nn.MSELoss() #.29
+        #self.loss_function = torch.nn.BCELoss() # CUDA error?
+        self.topn = topn
+
+        self.decoder_dropout = torch.nn.Dropout(decoder_dropout)
+        self.decoder_dropout.to(device)
+
+    def forward(self, mlm_out, mask, gold=None):
+        if self.topn != 1:
+            logger.warning('topn is not implemented for the probdistr task type, as it is unclear what it should do')
+
+        if self.decoder_dropout.p > 0.0:
+            mlm_out =  self.decoder_dropout(mlm_out) 
+
+        logits = self.hidden_to_label(mlm_out)
+        logits = F.softmax(logits, -1)
+        out_dict = {'logits': logits}
+        if type(gold) != type(None):
+            self.metric.score(logits, gold, None, mask)
+            if self.additional_metrics:
+                for additional_metric in self.additional_metrics:
+                    additional_metric.score(maxes, gold, None, self.vocabulary.inverse_namespaces[self.task], None)
+            out_dict['loss'] = self.loss_weight * self.loss_function(logits, gold)
+        return out_dict
+
+    def get_output_labels(self, mlm_out, mask, gold=None):
+        logits = self.forward(mlm_out, mask, gold)['logits']
+        return {'sent_labels': [x.tolist() for x in logits]}
+

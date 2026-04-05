@@ -1,0 +1,6 @@
+2026-04-05 00:10:57,583 - INFO - machamp.model.trainer - cmd: train.py --dataset_config configs/edos.json --parameters_config configs/params.json
+2026-04-05 00:10:57,584 - INFO - machamp.model.trainer - GPU: none, on CPU currently
+2026-04-05 00:10:57,584 - INFO - machamp.model.trainer - Torch version: 2.9.1+cpu
+2026-04-05 00:10:57,584 - INFO - machamp.model.trainer - Transformers version: 4.57.6
+2026-04-05 00:10:57,584 - INFO - machamp.model.trainer - MaChAmp git version efea5c00f114a5cd5da9e8f3c104263d1dbce864
+2026-04-05 00:10:58,176 - INFO - machamp.data.machamp_dataset - Reading data/edos_labelled_aggregated.csv...
