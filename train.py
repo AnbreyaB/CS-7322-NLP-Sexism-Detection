@@ -2,7 +2,6 @@ import torch
 import argparse
 import sys
 from machamp.model import trainer
-from machamp.predictor.predict import predict_with_paths
 
 # https://github.com/machamp-nlp/machamp
 

@@ -42,11 +42,16 @@ else:
     device = 'cuda:' + str(args.device)
 
 logger.info('loading model...')
-model = torch.load(args.torch_model, map_location=device, weights_only=False)
-model.device = device
+# model = torch.load(args.torch_model, map_location=device, weights_only=False)
+model = torch.load(args.torch_model, map_location=torch.device("cpu"), weights_only=False)
+# print(model["args"])
+# print()
+# print(model["model"].keys())
+print(model.keys())
+model["device"] = device
 
 if args.topn != None:
-    for decoder in model.decoders:
+    for decoder in model["model"]:
         model.decoders[decoder].topn = args.topn
 
 for dataIdx in range(0, len(args.file_paths), 2):

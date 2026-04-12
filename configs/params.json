@@ -9,10 +9,10 @@
   },
   "decoders": {
     "default_decoder": {
-    //   "loss_weight": 1.0,
-    //   "metric": "accuracy",
-    //   "topn": 1,
-    //   "layers_to_use": [-1]
+      "loss_weight": 1.0,
+      "metric": "accuracy",
+      "topn": 1,
+      "layers_to_use": [-1]
     },
     "classification": {},
     "dependency": {},
