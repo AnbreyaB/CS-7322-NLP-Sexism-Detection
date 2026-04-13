@@ -8,17 +8,17 @@
                 "task_type": "classification",
                 "column_idx": 1,
                 "metric": "f1_macro"
-            },
-            "category_sexism": {
-                "task_type": "multiclas",
-                "column_idx": 2,
-                "metric": "f1_macro"
-            },
-            "fine_grained_sexism": {
-                "task_type": "multiclas",
-                "column_idx": 3,
-                "metric": "f1_macro"
             }
+            // "category_sexism": {
+            //     "task_type": "multiclas",
+            //     "column_idx": 2,
+            //     "metric": "f1_macro"
+            // },
+            // "fine_grained_sexism": {
+            //     "task_type": "multiclas",
+            //     "column_idx": 3,
+            //     "metric": "f1_macro"
+            // }
         }
     }
 }

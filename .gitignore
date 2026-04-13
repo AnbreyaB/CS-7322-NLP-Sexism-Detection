@@ -1,0 +1,6 @@
+# ignore all logs and prediction files
+logs/
+models/
+predictions/
+machamp/*/__pycache__/
+test.py

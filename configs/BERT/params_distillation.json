@@ -1,5 +1,5 @@
 {
-  "transformer_model": "roberta-base",
+  "transformer_model": "distilbert-base-uncased", // https://huggingface.co/docs/transformers/en/model_doc/distilbert
   "reset_transformer_model": false,
   "default_dec_dataset_embeds_dim": 12,
   "encoder": {
