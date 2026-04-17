@@ -1,5 +1,5 @@
 {
-  "transformer_model": "deberta-base", // https://huggingface.co/docs/transformers/en/model_doc/deberta
+  "transformer_model": "microsoft/deberta-v3-large", // https://huggingface.co/docs/transformers/en/model_doc/deberta
   "reset_transformer_model": false,
   "default_dec_dataset_embeds_dim": 12,
   "encoder": {
