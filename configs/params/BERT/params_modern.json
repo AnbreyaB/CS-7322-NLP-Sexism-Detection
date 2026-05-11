@@ -1,5 +1,5 @@
 {
-  "transformer_model": "ModernBERT-base", // https://huggingface.co/docs/transformers/en/model_doc/modernbert
+  "transformer_model": "answerdotai/ModernBERT-base", // https://huggingface.co/docs/transformers/en/model_doc/modernbert
   "reset_transformer_model": false,
   "default_dec_dataset_embeds_dim": 12,
   "encoder": {

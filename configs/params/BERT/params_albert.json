@@ -1,5 +1,5 @@
 {
-  "transformer_model": "albert-xxlarge-v2", // https://huggingface.co/docs/transformers/en/model_doc/albert
+  "transformer_model": "albert/albert-base-v2", // https://huggingface.co/docs/transformers/en/model_doc/albert
   "reset_transformer_model": false,
   "default_dec_dataset_embeds_dim": 12,
   "encoder": {
